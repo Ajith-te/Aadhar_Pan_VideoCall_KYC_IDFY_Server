@@ -1,5 +1,0 @@
-IgnoreFiles.txt
-IgnoreDirectory.txt
-.gitignore
-.gitlab-ci.yml
- README.md
