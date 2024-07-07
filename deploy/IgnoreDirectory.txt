@@ -1,0 +1,3 @@
+__pycache__
+aadhar_dfy-venv
+deploy

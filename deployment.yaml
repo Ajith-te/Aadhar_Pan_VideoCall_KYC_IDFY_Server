@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aadhar-verification-idfy-deployment
+  namespace: finvesta-namespace
+  labels:
+    app: aadhar-verification-idfy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aadhar-verification-idfy
+  template:
+    metadata:
+      labels:
+        app: aadhar-verification-idfy
+    spec:
+      containers:
+        - name: aadhar-verification-idfy-container
+          image: aadhar-verification-idfy-image
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8005
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aadhar-verification-idfy-service
+  namespace: finvesta-namespace
+  labels:
+    app: aadhar-verification-idfy
+spec:
+  selector:
+    app: aadhar-verification-idfy
+  ports:
+    - protocol: TCP
+      port: 8005
